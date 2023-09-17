@@ -13,35 +13,35 @@
 	
 	<h1>Cadastro de Produto</h1>
 	<h:form>
-		<h:panelGrid colums="3">
+		<h:panelGrid colums="2" cellpadding="10">
 		
 			<h:form>
 				<h:outputText value="Descrição: " />
-    			<h:inputText id="descricao" value="#{produto.descricao}" maxlength="50" />
+    			<h:inputText id="descricao" value="#{produtos.produto.descricao}" maxlength="50" />
     			<p:message for="descricao" />
 			</h:form>
 
 			<h:form>
 				<h:outputText value="Validade: " />
-    			<p:calendar value="#{produto.validade}" mode="popup" showOn="button" />
+    			<p:calendar id="validade" value="#{produtos.produto.validade}" mode="popup" showOn="button" />
 			</h:form>
 
 			<h:form>
 				<h:outputText value="Dia do Cadastro: " />
-    			<p:calendar value="#{produto.dia_cadastro}"/>
+    			<p:calendar id="dia_cadastro" value="#{produtos.produto.dia_cadastro}"/>
 			</h:form>
 			
 			<h:form>
 				<h:outputText value="Preço: " />
-    			<p:inputNumber value="#{produto.preco}" decimalPlaces="2" decimalSeparator="," thousandSeparator="." />
+    			<p:inputNumber id="preco"  value="#{produtos.produto.preco}" maxIntegerDigits="13" decimalPlaces="2" decimalSeparator="," thousandSeparator="." />
 			</h:form>
 			
 			<h:form>
     			<h:outputText value="Ativo: " />
-    			<p:toggleSwitch id="ativoToggle" value="#{produto.ativo}" onLabel="Sim" offLabel="Não" />
+    			<p:toggleSwitch id="ativo" value="#{produtos.produto.ativo}" onLabel="Sim" offLabel="Não" />
 			</h:form>
 			
-			<p:commandButton value="Gravar" action="#{produtos.salvar}" />
+			<p:commandButton value="Salvar" action="#{produtos.salvar}" />
 
 		</h:panelGrid>
 	</h:form>

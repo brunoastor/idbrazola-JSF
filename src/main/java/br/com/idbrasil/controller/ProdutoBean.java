@@ -4,14 +4,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
 import br.com.idbrasil.dao.ProdutoDAO;
 import br.com.idbrasil.model.Produto;
 
-@RequestScoped
+@ManagedBean
 @Named("produtos")
+@ViewScoped
 public class ProdutoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -21,6 +23,31 @@ public class ProdutoBean implements Serializable {
 
 	public void salvar() {
 		produtoDAO.salvar(produto);
-		produto = new Produto(); // Reset
+		produto = new Produto();
 	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+	public ProdutoDAO getProdutoDAO() {
+		return produtoDAO;
+	}
+
+	public void setProdutoDAO(ProdutoDAO produtoDAO) {
+		this.produtoDAO = produtoDAO;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
 }

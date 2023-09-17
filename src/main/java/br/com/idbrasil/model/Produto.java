@@ -5,14 +5,14 @@ import java.util.Date;
 import java.util.Objects;
 
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @RequestScoped
-@Named("produto")
 @Entity
 public class Produto implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -20,11 +20,22 @@ public class Produto implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	private String descricao;
+
+	@Temporal(TemporalType.DATE)
 	private Date validade;
+
+	@Temporal(TemporalType.DATE)
 	private Date dia_cadastro;
+
 	private Long preco;
+
 	private boolean ativo;
+
+	public Produto() {
+
+	}
 
 	public Long getId() {
 		return id;
